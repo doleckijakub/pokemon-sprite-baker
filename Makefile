@@ -12,7 +12,7 @@ crop: $(IMAGE_FILE)
 		for j in $$(seq 0 $$(($(COLUMNS) - 1))); do \
 			index=$$(($$i * $(COLUMNS) + $$j + 1)); \
 			if [ $$index -le $(TOTAL_IMAGES) ]; then \
-				magick $(IMAGE_FILE) -crop $(CROP_SIZE)+$$((j * 80))+$$((i * 80)) +repage sprites/pokemon_$$index.png; \
+				magick $(IMAGE_FILE) -crop $(CROP_SIZE)+$$((j * 80))+$$((i * 80)) -scale 200% +repage sprites/pokemon_$$index.png; \
 				count=$$(($$count + 1)); \
 				echo "Progress: $$count/$(TOTAL_IMAGES)"; \
 			fi; \
